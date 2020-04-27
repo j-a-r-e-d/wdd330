@@ -15,7 +15,44 @@
       <li>
         <ol>
           <li>
-            Notes go here.
+            <h3>Local Storage:</h3>
+            <ul>
+              <li>
+                Check out this <a href="https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72">site</a>.
+              </li>
+              <li>
+                <b>Local storage: </b>data that persists even if you refresh the page or close the browser.<br>
+                <b>Session storage: </b>data that will get cleared when the browser is closed.
+              </li>
+              <li>
+                <b>Storage capcities: </b><br>
+                Local Storage = 5MB<br>
+                Cookie storage = 4KB
+              </li>
+              <li>
+                <b>Using local storage you can:</b><br>
+                Set key:value pairs.<br>
+                Only store strings.<br>
+                Arrays and objects can be stored but you must first convert them to string using JSON.stringify() and JSON.parse().
+              </li>
+              <li>
+                <b>Local storage methods</b><br>
+                setItem(key,value) - add key & value to local storage.<br>
+                getItem(keyName) - retrieve a value by the key.<br>
+                removeItem(keyName) - remove a value by the key.<br>
+                clear() - clear all storage.<br>
+                <b>Examples:</b><br> 
+                localStorage.setItem('name','Pedro')<br>
+                sessionStorage.setItem('name','Side Thai')<br>
+                localStorage.getItem('name')
+              </li>
+              <li>
+                To see your local storage, open developer console and select Storage tab.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>Next item</h3>
           </li>
         </ol>
       </li>
