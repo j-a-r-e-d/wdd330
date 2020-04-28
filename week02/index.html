@@ -28,6 +28,12 @@
           <li>
             Does clearing browser history also clear out local storage? Would clearing local storage regularly improve browser loading or performance? 
           </li>
+          <li>
+            Primitve datatype Symbol: Two variables are able to share the same symbol by using "for".<br>
+            <em>Example:</em><pre>const A = Symbol.for('shared symbol'); <br>const B = Symbol.for('shared symbol');</pre>
+            Yet the textbook states "The uniqueness of symbols, mean that it’s impossible for the names of any properties to clash with each other if they are symbols."(JSNinja2 p.54)<br>
+            How can properties in a class retain uniqueness if they are able to be assigned the same symbol name?
+          </li>
         </ol>
       </li>
     </ul>

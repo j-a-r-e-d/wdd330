@@ -52,7 +52,40 @@
             </ul>
           </li>
           <li>
-            <h3>Next item</h3>
+            <h3>Programming Basics</h3>
+            <ul>
+              <li>
+                <b>Template Literals:<br></b> By using backticks, one can manipulate strings as normally but with the added benefit of string interpolation. For this reason, it is not uncommon to see backticks used to create all strings in ES6 code.<br> Ex:`My name is ${myName}`; 
+              </li>
+              <li>
+                <b>Primitive Datatypes:</b><br>
+                <ol>
+                  <li>String</li>
+                  <li>Symbol</li>
+                  <li>Number</li>
+                  <li>Boolean</li>
+                  <li>Undefined</li>
+                  <li>Null</li>
+                </ol>Any value that isn't one of these primitive datatypes is an object(functions, arrays, object literals).
+              </li>
+              <li>
+                Only 9 values are always false and these are known as <b>FALSY</b> values:<br>
+                <ol>
+                  <li>" " - double quoted empty string literal</li>
+                  <li>' ' - single quoted empty string literal</li>
+                  <li>` ` - empty template literal</li>
+                  <li>0 - zero</li>
+                  <li>-0 - negative zero. Considered different than 0 to JavaScript</li>
+                  <li>NaN - Not a number</li>
+                  <li>false</li>
+                  <li>NULL</li>
+                  <li>Undefined</li>
+                </ol>
+              </li>
+              <li>
+                Always use <b>hard equality</b> when testing if two values are equal. This will avoid the problems caused by JavaScript’s type coercion.<em>Example: userInput === 5; userName === 'Chris'</em>
+              </li>
+            </ul>
           </li>
         </ol>
       </li>
