@@ -9,7 +9,7 @@
     <script type="text/javascript">
       function displayText(){
         let userText = document.getElementById('text').value;
-        document.getElementById('displayDiv').innerHTML = '<br><br>' + userText;
+        document.getElementById('displayDiv').innerHTML = '<br><br>' + 'Text: ' + userText;
         console.log(userText);
       }
 
@@ -18,13 +18,13 @@
         const userNumber = Number(document.getElementById('number1').value);
         // Use Gauss' Formula: n(n+1)/2
         const gaussFormula = userNumber * (userNumber + 1) / 2;
-        document.getElementById('displayDiv').innerHTML = '<br>' + gaussFormula;
+        document.getElementById('displayDiv').innerHTML = '<br>' + 'Gauss\' Sum:' + gaussFormula;
       }
 
       function displaySum(){
         const num1 = Number(document.getElementById('number1').value);
         const num2 = Number(document.getElementById('number2').value);
-        document.getElementById('displayDiv').innerHTML = num1 + num2;
+        document.getElementById('displayDiv').innerHTML = 'Sum: ' + num1 + num2;
       }
     </script>
   </head>
