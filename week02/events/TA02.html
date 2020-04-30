@@ -15,15 +15,15 @@
 
       function displayGaussSum(){
         //Must convert the textbox input(data type string) to number.
-        const userNumber = Number(document.getElementById('number').value);
+        const userNumber = Number(document.getElementById('number1').value);
         // Use Gauss' Formula: n(n+1)/2
         const gaussFormula = userNumber * (userNumber + 1) / 2;
         document.getElementById('displayDiv').innerHTML = '<br>' + gaussFormula;
       }
 
       function displaySum(){
-        const num1 = document.getElementById('number1').value;
-        const num2 = document.getElementById('number2').value;
+        const num1 = Number(document.getElementById('number1').value);
+        const num2 = Number(document.getElementById('number2').value);
         document.getElementById('displayDiv').innerHTML = num1 + num2;
       }
     </script>
