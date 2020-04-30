@@ -13,12 +13,18 @@
         console.log(userText);
       }
 
-      function displaySum(){
+      function displayGaussSum(){
         //Must convert the textbox input(data type string) to number.
         const userNumber = Number(document.getElementById('number').value);
         // Use Gauss' Formula: n(n+1)/2
         const gaussFormula = userNumber * (userNumber + 1) / 2;
         document.getElementById('displayDiv').innerHTML = '<br>' + gaussFormula;
+      }
+
+      function displaySum(){
+        const num1 = document.getElementById('number1').value;
+        const num2 = document.getElementById('number2').value;
+        document.getElementById('displayDiv').innerHTML = num1 + num2;
       }
     </script>
   </head>
@@ -27,8 +33,12 @@
         <h3>Team Activity - JavaScript Functions</h3>
     </header>
     <input type="text" name="text" id="text" placeholder="Write something!">
+    <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
+    <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
     <section>
       <button type="button" name="displayText" onclick="displayText()">What did I say?</button>
+      <button type="button" name="GaussSum" onclick="displayGaussSum()">Sum all numbers to <em>n</em></button>
+      <button type="button" name="add" onclick="displaySum()">+</button>
     </section>
     <section>
       <div id="displayDiv">
