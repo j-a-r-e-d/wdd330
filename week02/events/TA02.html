@@ -12,6 +12,14 @@
         document.getElementById('displayDiv').innerHTML = '<br><br>' + userText;
         console.log(userText);
       }
+
+      function displaySum(){
+        //Must convert the textbox input(data type string) to number.
+        const userNumber = Number(document.getElementById('number').value);
+        // Use Gauss' Formula: n(n+1)/2
+        const gaussFormula = userNumber * (userNumber + 1) / 2;
+        document.getElementById('displayDiv').innerHTML = '<br>' + gaussFormula;
+      }
     </script>
   </head>
   <body>
