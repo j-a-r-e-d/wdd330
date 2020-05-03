@@ -16,7 +16,29 @@
       <li>
         <ol>
           <li>
-            Notes go here.
+            <em>This</em> keyword
+            <ul>
+              <li>
+                A method is a function that is declared/used inside of an object. When they use <em>this</em> keyword, they are referencing the Object they are inside.<br>
+                <code>
+                  let user = {
+                    name: "John",
+                    age: 30,
+
+                    sayHi() {
+                      // "this" is the "current object"
+                      alert(this.name);
+                    }
+
+                  };
+
+                  user.sayHi(); // John
+                </code>
+              </li>
+              <li>
+                Arrow functions have no <em>this</em>. When <em>this</em> is used inside an arrow function inside an object, the <em>this</em> will refer to the object of the first 'normal' function outside of the arrow function.
+              </li>
+            </ul>
           </li>
         </ol>
       </li>
