@@ -36,7 +36,18 @@
                 </code>
               </li>
               <li>
-                Arrow functions have no <em>this</em>. When <em>this</em> is used inside an arrow function inside an object, the <em>this</em> will refer to the object of the first 'normal' function outside of the arrow function.
+                Arrow functions have no <em>this</em>. When <em>this</em> is used inside an arrow function inside an object, the <em>this</em> will refer to the object of the first 'normal' function outside of the arrow function.<br>
+                <code>
+                  let user = {
+                    firstName: "Ilya",
+                    sayHi() {
+                      let arrow = () => alert(this.firstName);
+                      arrow();
+                    }
+                  };
+
+                  user.sayHi(); // Ilya
+                </code>
               </li>
             </ul>
           </li>
