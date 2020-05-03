@@ -16,39 +16,128 @@
       <li>
         <ol>
           <li>
-            <em>This</em> keyword
+            <!-- 1. THIS Keyword -->
+            <h3><em>This</em> keyword</h3>
             <ul>
               <li>
                 A method is a function that is declared/used inside of an object. When they use <em>this</em> keyword, they are referencing the Object they are inside.<br>
-                <code>
-                  let user = {
-                    name: "John",
-                    age: 30,
+                <pre>
+let user = {
+  name: "John",
+  age: 30,
 
-                    sayHi() {
-                      // "this" is the "current object"
-                      alert(this.name);
-                    }
+  sayHi() {
+    // "this" is the "current object"
+    alert(this.name);
+  }
 
-                  };
+};
 
-                  user.sayHi(); // John
-                </code>
+user.sayHi(); // John
+                </pre>
               </li>
               <li>
                 Arrow functions have no <em>this</em>. When <em>this</em> is used inside an arrow function inside an object, the <em>this</em> will refer to the object of the first 'normal' function outside of the arrow function.<br>
-                <code>
-                  let user = {
-                    firstName: "Ilya",
-                    sayHi() {
-                      let arrow = () => alert(this.firstName);
-                      arrow();
-                    }
-                  };
+                <pre>
+let user = {
+  firstName: "Ilya",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
 
-                  user.sayHi(); // Ilya
-                </code>
+user.sayHi(); // Ilya
+                </pre>
               </li>
+            </ul>
+          </li>
+          <!-- 2. Objects -->
+          <li>
+            <h3>Objects</h3>
+            <ul>
+              <li>
+                Objects are a collection of <b>key-value pairs separated by commas</b>, placed inside  curly braces {}.
+              </li>
+              <li>
+                Objects have properties that can be any JavaScript value. <b>If a property is a function, it’s known as a method.</b>
+              </li>
+              <li>
+                An object’s properties and methods can be accessed using either dot notation or by <b>square bracket notation</b>.
+              </li>
+              <li>
+                <b>Objects are mutable</b>, which means their properties and methods can be changed or removed <b>even if they were declared using <code>CONST</code></b>.
+              </li>
+              <li>
+                JSON is a portable data format that uses JavaScript object literals to exchange information.
+              </li>
+              <li>
+                The Regex object can be used to create regular expressions.
+              </li>
+              <li>
+                <b>Object literals</b> allow JavaScript to create objects without having to create a class first, like in other programming languages. <b>Object literals are made by simply wrapping an object's properties and methods in curly braces.</b>
+              </li>
+              <li>
+                ES6 provided a shorthand method of creating objects if a property key is the same as a variable name that the property value is assigned to:<pre>const name = 'Iron Man';
+const realName = 'Tony Stark';
+// long way
+const ironMan = { name: name, realName: realName };
+// short ES6 way
+const ironMan = { name, realName };</pre>
+              </li>
+              <li>
+                To access properties, use either <b>dot notation</b> (superman.realName) or <b>square bracket notation</b> (superman['realName']).
+              </li>
+              <li>
+                To list all properties of an object use: <pre><b>for(const key in superman) {<br> console.log(key + ": " + superman[key]); <br>}</b></pre>
+              </li>
+              <li>
+                To list an object properties, excluding inherited properties, use:<pre><b>for(const key in superman) {<br> if(superman.hasOwnProperty(key)){
+console.log(key + ": " + superman[key]); <br>}
+}</b></pre>
+              </li>
+              <li>
+                To <b>delete</b> a property from an object, use: <pre><b>delete superman.fly</b></pre>
+              </li>
+              <li>
+                JSON rules:
+                <ol>
+                  <li>Property names must be <b>double-quoted</b></li>
+                  <li>
+                    Permitted values are double-quoted strings, numbers, true, false, null, arrays
+                    and objects
+                  </li>
+                  <li>Functions are not permitted values</li>
+                </ol>
+              </li>
+              <li>
+                The <b>parse()</b> method takes a string of data in JSON format and returns a JavaScript object.
+              </li>
+              <li>
+                The <b>stringify()</b> method does the opposite, taking a JavaScript object and returning a string of JSON data.
+              </li>
+              <li>
+                The <code><b>Math.random()</b></code>:
+                <ol>
+                  <li>Math.random() will generate a number between 0 (inclusive) and 1 (exclusive)</li>
+                  <li>To generate a random number between 0 and another number, multiply the value by that number. <code><b>Ex: 6 * Math.random();</b></code></li>
+                  <li>Example to generate a random integer: <code><b>Math.floor(6 * Math.random()); Math.trunc(20 * Math.random()); Math.ceil(100 * Math.random());</b></code></li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+          <!-- 3. Document Object Model (DOM) -->
+          <li>
+            <h3>Document Object Model (DOM)</h3>
+            <ul>
+              <li>First note...</li>
+            </ul>
+          </li>
+          <!-- 4. Events -->
+          <li>
+            <h3>Events</h3>
+            <ul>
+              <li>First note...</li>
             </ul>
           </li>
         </ol>
