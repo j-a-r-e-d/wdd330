@@ -124,13 +124,39 @@ console.log(key + ": " + superman[key]); <br>}
                   <li>Example to generate a random integer: <code><b>Math.floor(6 * Math.random()); Math.trunc(20 * Math.random()); Math.ceil(100 * Math.random());</b></code></li>
                 </ol>
               </li>
+              <li><b>"The Epoch"</b> refers to the date Jan 01, 1970 in context of the Date object.</li>
+              <li><b>UTC</b> time stands for <b>Universal Time Coordinated</b>.</li>
+              <li>Use <b>getFullYear()</b> to get the year from your Date object. <b>(Don't use the getYear() getter - it is not Y2K compliant and is thus not accurate.)</b></li>
+              <li>
+                <b>Regular Expression</b> constructor has the advantage of letting you create a regular expression using a variable:<pre><b>const language = 'JavaScript';
+const pattern = new RegExp(language);</b></pre>
+              </li>
             </ul>
           </li>
           <!-- 3. Document Object Model (DOM) -->
           <li>
             <h3>Document Object Model (DOM)</h3>
             <ul>
-              <li>First note...</li>
+              <li>Definition: The DOM treats everything on a web page as a node. HTML tags, the text inside these tags, even the attributes of a tag are all nodes. The HTML tag is the root node, and every other part of the document is a child node of this.</li>
+              <li>
+                <b>Turn node lists into arrays:</b>
+                <ol>
+                  <li>Use Array.from(): <b>const imageArray = Array.from(document.images);</b></li>
+                  <li>Use the spread operator: <b>const imageArray = [...document.images];</b></li>
+                </ol>
+              </li>
+              <li>
+                Common DOM methods:
+                <ol>
+                  <li><b>getElementById():</b> const custName = document.getElementById('customerName');</li>
+                  <li><b>getElementsByTag():</b> const inputNodeList = document.getElementById('input'); (returns a <b>node list</b> of all elements with tag.)</li>
+                  <li><b>getElementsByClassName():</b> const villainsNodeList = document.getElementsByClassName('villians'); (returns a <b>node list</b> of all elements with class.)</li>
+                  <li><b>querySelector():</b> const bats = document.querySelector('#bats'); (will return the <em>first</em> element in the document that matches the CSS selector provided, which in this example is the id="bats". Use this inplace of getElementById.)</li>
+                  <li><b>querySelectorAll():</b> const heroes = document.querySelectorAll('.hero'); (will return <b>node list</b> of <em>all</em> elements in the document that matche the CSS selector provided, which in this example is the class="hero". Use this inplace of getElementsByClassName.)</li>
+                </ol>
+              </li>
+              <li><b>jQuery: </b>jQuery is a popular JavaScript framework that makes it very easy to find elements on a page using a CSS-style syntax. It uses document.querySelectorAll() in the background whenever it can. For example, the jQuery code ,<b>$('ul#roster').find('li#bats');</b> is basically doing the same as our previous example:<pre>const ul = document.querySelector('ul#roster');
+ul.querySelector('li#bats')</pre></li>
             </ul>
           </li>
           <!-- 4. Events -->
