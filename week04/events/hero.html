@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'> <title>Hero Form</title> </head>
+<body>
+  <form id='hero'>
+    <label for='heroName'>Name:
+      <input type='text' id='heroName' name='heroName'
+      autofocus placeholder='Your Super Hero Name' maxlength=32>
+    </label>
+    <label for='realName'>Real Name: <input type='password' name='realName' id='realName'></label>
+    <p>Super Powers:</p>
+    <label for='flight'>Flight:
+      <input type='checkbox' id='flight' value='Flight' ➥ name='powers'>
+    </label>
+    <label for='strength'>Super Strength:
+      <input type='checkbox' id='strength' value='Strength' ➥ name='powers'>
+    </label>
+    <label for='speed'>Super Speed:
+      <input type='checkbox' id='speed' value='Super Speed' ➥ name='powers'>
+    </label>
+    <label for='energy'>Energy Blasts:
+      <input type='checkbox' id='energy' value='Energy Blasts' ➥ name='powers'>
+    </label>
+    <label for='telekinesis'>Telekinesis:
+      <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+    </label>
+    <p>What type of hero are you?</p>
+    <label for='hero'>Hero:
+      <input type='radio' name='category' value='Hero' id='hero'>
+    </label>
+    <label for='villain'>Villain:
+      <input type='radio' name='category' value='Villain' id='villain'>
+      </label>
+      <label for='anti-hero'>Anti-Hero:
+        <input type='radio' name='category' value='Antihero' id='anti-hero'>
+      </label>
+    <button type='submit'>Submit</button>
+  </form>
+  <script src='main.js'></script>
+</body>
+</html>

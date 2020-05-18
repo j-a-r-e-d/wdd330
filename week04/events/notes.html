@@ -14,9 +14,35 @@
     <ul>
       <li><a href="../index.html">Go back to Week 04 folder</a></li>
       <li>
+        <a href="main.html">Lesson Examples</a>
+      </li>
+      <li>
         <ol>
           <li>
-            Notes go here.
+            <h3>Forms</h3>
+            <ul>
+              <li>The <b>autofocus attribute</b> give focus to this element when a page loads. It is the
+equivalent to putting the following line of JavaScript in main.js:<pre> document.forms.hero.heroName.focus();</pre> Instead, use autofocus like so:<pre>&lt;input type='text' id='heroName' name='heroName' <b>autofocus</b> placeholder='Your Super Hero Name' maxlength=32&gt;</pre> </li>
+            <li>
+              <b>Types of INPUT:</b>
+              <ol>
+                <li>
+                  <b>Text:</b> This is the default input type.
+                </li>
+                <li>
+                  <b>Password:</b> This works in the same way as an input field with type='text', except the characters are concealed as they are entered so they’re unable to be read on the screen.
+                </li>
+                <li>
+                  <b>Checkbox:</b> Check boxes are created using input fields with type='checkbox'. They are used to select different options that can be checked (true) or left unchecked (false). The user can select more than one checkbox from a list.<br><br>
+                  Make all the checkbox elements have the same 'name' property of 'powers'. This means they can be accessed as an <b>HTML collection</b>, like so:  <code>form.powers;</code>.<br>
+                  The state of the checkbox can be set with HTML:<pre>&lt;input type='checkbox' value='Flight' name='powers' <b>checked</b>&gt;</pre>
+                </li>
+                <li>
+                  <b>Radio:</b> Like checkboxes they allow users to check an option as true, but they provide an exclusive choice of options, <b>so only one option can be selected.</b> Give radio buttons the <b>same name attribute</b>. This is used to group them together ― <b>only one radio button can be checked in a group that has the same name attribute.</b> It also means we can access an HTML collection of all the radio buttons in that group using the property of the same name ― as can be seen in this line of code:<pre>form.category;</pre>
+                </li>
+              </ol>
+            </li>
+            </ul>
           </li>
         </ol>
       </li>

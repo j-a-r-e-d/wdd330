@@ -13,6 +13,7 @@
     <h3>Week03</h3>
     <ul>
       <li><a href="../index.html">Go back to Week 03 folder</a></li>
+      <li><a href="main.html">Lesson Examples</a></li>
       <li>
         <ol>
           <li>
@@ -137,8 +138,83 @@ const pattern = new RegExp(language);</b></pre>
           <li>
             <h3>Document Object Model (DOM)</h3>
             <ul>
-              <li>Definition: The DOM treats everything on a web page as a node. HTML tags, the text inside these tags, even the attributes of a tag are all nodes. The HTML tag is the root node, and every other part of the document is a child node of this.</li>
+              <li><b>DOM:</b> The Document Object Model represents an HTML document as a network of connected nodes that form a tree-like structure. The DOM treats everything on a web page as a node. HTML tags, the text inside these tags, even the attributes of a tag are all nodes. <b>The HTML tag is the root node</b>, and every other part of the document is a child node of this.</li>
+              <li><a href="https://dom.spec.whatwg.org/#parentnode">Check out latest DOM updates and features here!</a> </li>
+              <li>To find out what kind of node a given element is, use <b>variableName.nodeType;</b>
+                <pre>// In console, type the following:
+    const body = document.body;
+    body.nodeType;
+// Result = 1 (element node type)</pre>
+              There are 12 nodeTypes (HTML types are highlighted):<br>
+              <table>
+                <thead>
+                  <tr>
+                    <th>NodeType</th>
+                    <th>Named Constant</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color:rgba(229, 91, 60,.3);">
+                    <td class="cellIndex">1</td>
+                    <td class="cellValue">ELEMENT_NODE</td>
+                  </tr>
+                  <tr style="background-color:rgba(229, 91, 60,.3);">
+                    <td class="cellIndex">2</td>
+                    <td class="cellValue">ATTRIBUTE_NODE</td>
+                  </tr>
+                  <tr style="background-color:rgba(229, 91, 60,.3);">
+                    <td class="cellIndex">3</td>
+                    <td class="cellValue">TEXT_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">4</td>
+                    <td class="cellValue">CDATA_SECTION_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">5</td>
+                    <td class="cellValue">ENTITY_REFERENCE_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">6</td>
+                    <td class="cellValue">ENTITY_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">7</td>
+                    <td class="cellValue">PROCESSING_INSTRUCTION_NODE</td>
+                  </tr>
+                  <tr style="background-color:rgba(229, 91, 60,.3);">
+                    <td class="cellIndex">8</td>
+                    <td class="cellValue">COMMENT_NODE</td>
+                  </tr>
+                  <tr style="background-color:rgba(229, 91, 60,.3);">
+                    <td class="cellIndex">9</td>
+                    <td class="cellValue">DOCUMENT_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">10</td>
+                    <td class="cellValue">DOCUMENT_TYPE_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">11</td>
+                    <td class="cellValue">DOCUMENT_FRAGMENT_NODE</td>
+                  </tr>
+                  <tr>
+                    <td class="cellIndex">12</td>
+                    <td class="cellValue">NOTATION_NODE</td>
+                  </tr>
+                </tbody>
+              </table>
+              </li>
               <li>
+                Legacy DOM Level 0 shortcuts:
+                <ul>
+                  <li><b>document.body</b> returns the body element of a web page.</li>
+                  <li><b>document.images</b> returns a node list of all the images in the document.</li>
+                  <li><b>document.links</b> returns a node list of all the &lt;a&gt; elements and &lt;area&gt; elements that have an href attribute.</li>
+                  <li><b>document.anchors</b> returns a node list of all the &lt;a&gt; elements that have a name attribute.</li>
+                  <li><b>document.forms</b> returns a node list of all the forms in the document.</li>
+                </ul>
+              </li>
                 <b>Turn node lists into arrays:</b>
                 <ol>
                   <li>Use Array.from(): <b>const imageArray = Array.from(document.images);</b></li>
@@ -163,7 +239,21 @@ ul.querySelector('li#bats')</pre></li>
           <li>
             <h3>Events</h3>
             <ul>
-              <li>First note...</li>
+              <li><b>CLICK EVENT:</b> The click event occurs when a user clicks with the mouse, presses the Enter key, or taps the screen, making it a very useful all-round event covering many types of interaction</li>
+              <li>The addEventListener() method can also be called without a node, in which case it is applied to the global object, usually the whole browser window. Example:<pre>addEventListener('click', () => alert('You Clicked!'));</pre> </li>
+              <li><b>Parentheses are not placed after the function when it’s used as the argument to an event listener</b>; otherwise, the function will actually be called when the event listener is set, instead of when the event happens!<pre>function doSomething() { alert('You Clicked!');}
+
+addEventListener('click',doSomething);</pre> </li>
+              <li>
+                There are no “swipe” events. These need to be created by using a combination of touchstart, touchmove, and touchleave events that monitor the distance and direction moved from start to finish of a touch event.
+                There were proposals for gesture events that may be supported in the future, but it seems they are not scheduled to be part of the specification anytime soon.
+                If you need to implement gestures, it’s probably a good idea to use a library such as <a href="https://hammerjs.github.io" target="_blank"><b>Hammer.JS5</b></a> or <a href="https://zingchart.github.io/zingtouch/" target="_blank"><b>zingtouch6</b></a> that makes events such as swipe, pinch and rotate easy to implement.</li>
+                <li>
+                  <b>Event propagation</b> is the order that the events fire on each element. There are two forms of event propagation: <b>bubbling and capturing.</b><br>
+                  <b>Bubbling</b> is when the event fires on the element clicked on first, then bubbles up the document tree, firing an event on each parent element until it reaches the root node.
+                  <br><b>Capturing</b> starts by firing an event on the root element, then propagates downwards, firing an event on each child element until it reaches the target
+                  element that was clicked on.
+                </li>
             </ul>
           </li>
         </ol>

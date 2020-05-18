@@ -14,3 +14,30 @@ body{
 b, em{
   color: tomato;
 }
+
+a{
+  font-weight: bolder;
+  color: dodgerblue;
+}
+
+/* Table styling */
+table{
+  border: 2px solid #777;
+  border-collapse: collapse;
+}
+thead{
+  border-bottom: 2px solid #777;
+  background-color: lightgrey;
+  color: grey;
+}
+th{
+  padding:.5rem;
+}
+.cellIndex{
+  border-right: 2px solid grey;
+  text-align: center;
+}
+.cellValue{
+  padding-left: .5rem;
+}
+/* end Table Styling */
