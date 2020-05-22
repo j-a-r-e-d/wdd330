@@ -44,6 +44,58 @@ equivalent to putting the following line of JavaScript in main.js:<pre> document
             </li>
             </ul>
           </li>
+          <li>
+            <h3>Object Oriented Programming</h3>
+            <ul>
+              <li>
+                3 main OOP concepts: <b>Encapsulation, Inheritance, Polymorphism.</b>
+              </li>
+              <li>
+                <b>Encapsulation:</b> Involves keeping all the programming logic inside an object and making methods available to implement the functionality, without the outside world needing to know how it’s done.
+              </li>
+              <li>
+                <b>Inheritance:</b> Various objects can share the same method, but also have the ability to override shared methods with a more specific implementation.
+              </li>
+              <li>
+                <b>Polymorphism:</b> Means we can take an object that already exists and inherit all its properties and methods. We can then improve on its functionality by adding new properties and methods.
+              </li>
+              <li>
+                <b>Prototype-based language:</b> A language, like JavaScript, that uses actual objects as the blueprint for creating more objects.
+              </li>
+              <li>
+                <b>OBJECTS:</b> Week 3 discussed JavaScript objects. They can be created as <em>literals</em>. <br><b>An object literal is an object that is created directly in the language by wrapping all its properties and methods in curly braces {}. </b><br>Object literals are a distinguishing feature of the JavaScript language, as they allow objects to be created quickly without the need for defining a class. Example: <pre>const superman = {
+name: 'Superman',
+'real name': 'Clark Kent',
+height: 75,
+weight: 235,
+hero: true,
+villain: false,
+allies: ['Batman','Supergirl','Superboy'], fly() {
+return 'Up, up and away!'; }
+};</pre> Create an empty object literal <b><span style="color:lime;">RECOMMENDED METHOD</span></b>: <pre>const spiderman = {};</pre> Create an empty object literal using a constructor function <b>NOT RECOMMENDED</b>: <pre>const spiderman = new Object();</pre>
+              </li>
+              <li>
+                <b>Class Declaration Syntax Example:</b> <pre>class Dice { constructor(sides=6) { this.sides = sides;
+}
+roll() {
+return Math.floor(this.sides * Math.random() + 1) }
+}</pre>
+              </li>
+              <li>
+                <B>STATIC KEYWORD:</B> Adding <em>static</em> before a class method name (ex. <code>static</code> description(){return 'This is an example of a static method.'}) makes it only available to the class directly, not instances of the class. So a dice class could call Dice.description but not an instance of Dice class, like blueDice.Description - <b>[ERROR!]</b> 
+              </li>
+              <li>
+                <b>PROTOTYPES:</b> Watch this <a href="https://www.youtube.com/watch?v=01jVgCK-HX4" target="_blank">video</a>  to see a good explanation of Prototypes.
+                <h4>Point to remember:</h4>
+                <ol>
+                  <li>
+                    In Javascript, <b>every function has a prototype object built-into it</b>. For example, a class' Constructor is a function. It thus has a Prototype object associated with it (it can be accessed with the dunder-proto [meaning <em>double underscore</em>]) <b>__proto__</b>.
+                  </li>
+                </ol>
+                
+              </li>
+            </ul>
+          </li>
         </ol>
       </li>
     </ul>
