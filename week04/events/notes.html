@@ -92,9 +92,85 @@ return Math.floor(this.sides * Math.random() + 1) }
                     In Javascript, <b>every function has a prototype object built-into it</b>. For example, a class' Constructor is a function. It thus has a Prototype object associated with it (it can be accessed with the dunder-proto [meaning <em>double underscore</em>]) <b>__proto__</b>.
                   </li>
                 </ol>
-                
+              </li>
+              <li>
+                <b>PRIVATE vs PUBLIC:</b> By default, JavaScript class properties and methods are PUBLIC. However, if you want to mave PRIVATE methods and properties, use <em>getters and setters</em> like so:<pre>class Turtle {
+constructor(name,color) {
+this.name = name;
+let _color = color;
+this.setColor = color => { return _color = color; } 
+this.getColor = () => _color;
+}
+}</pre> Using <em>getters and setters</em> will allow you to validate data/input before changes are made. The SETTER function above could have a check like so to ensure that only strings are used as input:<pre>this.setColor = (color) => { 
+  if(typeof color === 'string'){
+    return _color = color;
+  } else {
+    throw new Error('Color must be a string'); 
+  }
+}</pre>
+              </li>
+              <li>
+                <b>Enumerable Properties:</b><br>
+                If an object's properties are <em>enumerable</em> then they can be seen by using a 'for-in' loop. By keeping all Object() properties and methods non-enumberable (i.e. toString() method), they won't be flooding the results for a user who is trying to find the specific methods and properties to a user-defined object.<br>
+                To find out if a method or property is enumerable use: <b>Turtle.prototype.propertyIsEnumerable('eat');</b>
+              </li>
+              <li>
+                To create a <b>sub-class or child class</b> which inherits all the properties and methods of a parent class, use the <em><code>extends</code></em> keyword like so:<pre>class NinjaTurtle extends Turtle {
+  constructor(name) {
+    super(name);
+    this.weapon = 'hands'; 
+  }
+  attack() { return `Feel the power of my ${this.weapon}!` } 
+}</pre>Inside the child class declaration, the keyword <b><code>super</code></b> refers to the parent class, and can be used to access any properties and call any methods of the parent class. In the example above we use it to call the constructor function of the Turtle class.
+              </li>
+              <li>
+                It’s possible to avoid using classes altogether, and create new objects based on another object that acts as a blueprint or prototype instead.<br>
+                The <b>Object() constructor</b> function has a method called create that can be used to create a new object that is an exact copy of the object that is provided as an argument. The object that is provided as the argument acts as the prototype for the new object. EX: Create an object:<pre>const Human = {
+arms: 2,
+legs: 2,
+walk() { console.log('Walking'); } 
+}</pre>Then create an instance of that object using the <code>Object.create()</code> method:<pre>const lois = Object.create(Human);</pre><br>
+              Since Prototypal Objects aren't the same as Classes, instead of Constructors, one must use a custom <code>init</code> method like so:<pre>Superhuman.init = function(name,realName){ 
+    this.name = name;
+    this.realName = realName;
+    this.init = undefined; // this line removes the init function, so it can only be called once
+  return this;
+}</pre>
+              </li>
+              <li>
+                <B>OBJECT PROTOTYPE CHAIN</B><br>
+                <b>Creating objects from objects will create a prototype chain.</b>
+              </li>
+              <li>
+                <b>MIXIN:</b><br>
+                A mixin is a way of adding properties and methods of some objects to another object without using inheritance. It allows more complex objects to be created by ‘mixing’ basic objects together.
               </li>
             </ul>
+          </li>
+          <li>
+            <h3>MODULAR JAVASCRIPT</h3>
+            <UL>
+              <li>
+                <b>IMPORT / EXPORT</b>:<br>
+                To export JS code, write your modularized code in a separate file and include 'export' in it like so:<br>(Export Example)<pre>export const PI = 3.1415926;</pre>The, in your main.js file, import it like so:<br>(Import example)<pre>import { PI } from './pi.js';</pre>
+                If you want to <b>import all methods</b> and properties that are available from a file, do the following:<pre>import * as stats from './stats.js';</pre>
+                This will then import all the functions from the stats.js module and they’ll be given a namespace of stats. So, the mean function could be used as follows:<pre>stats.mean([2,6,10]);</pre>
+              </li>
+              <li>
+                <b>MVC - Model-View-Controller</b>: MVC separates an application into three distinct, independent components that interact with each other:
+                <ol>
+                  <li>
+                    <b>Models</b> are objects that implement the functionality for creating, reading, updating and deleting (known as CRUD tasks) specific pieces of information about the application, as well as any other associated logic and behavior. In a to-do list application, for example, there would be a task model providing methods to access all the information about the tasks such as names, due dates and completed tasks. This data will often be stored in a database or some other container.
+                  </li>
+                  <li>
+                    <b>Views</b> provide a visual representation of the model showing all the relevant information. <b>In a web application, this would be the HTML displayed on a web page.</b> Views also provide a way for users to interact with an application, usually via forms. In a to-do list application, the views would display the tasks as an HTML list with checkboxes that a user could tick to say a task had been completed.
+                  </li>
+                  <li>
+                    <b>Controllers</b> link models and views together by communicating between them. They respond to events, which are usually inputs from a user (entering some data into a form, for example), process the information, then update the model and view accordingly. In a to-do list application, the controller functions would respond to the event of a user clicking on a check box and then inform the model that a task had been completed. The model would then update the information about that task.
+                  </li>
+                </ol>
+              </li>
+            </UL>
           </li>
         </ol>
       </li>
