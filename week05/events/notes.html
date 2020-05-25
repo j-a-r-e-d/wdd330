@@ -14,47 +14,174 @@
     <ul>
       <li><a href="../index.html">Go back to Week 05 folder</a></li>
       <li>
+        <h2>TESTING and DEBUGGING</h2>
         <ol>
-          <h2>TESTING and DEBUGGING</h2>
           <li>
             <B>ERRORS, EXCEPTIONS, AND WARNINGS:</B>
             <UL>
               <LI>
-                START...
+                <b>STACK TRACE:</b> This is a sequence of functions or method calls that lead to the point where the error occurred. It’s often not just a single function or method call that causes an error. A stack trace will work backwards from the point at which the error occurred to identify the original function or method that started the sequence. 
               </LI>
+              <li>
+                <b>WARNINGS:</b> Warnings are errors that will occur but still allow the program to run after occuring. 
+              </li>
             </UL>
           </li>
           <li>
             <B>STRICT MODE:</B>
             <UL>
               <LI>
-                START...
+                <code>strict mode</code>produces more exceptions and warnings and prohibits the use of some deprecated features. This is due to the fact that strict mode considers coding practices that were previously accepted as just being “poor style” as actual errors.<br>
+                <b>Strict mode encourages a better quality of JavaScript to be written that befits a ninja programmer, so its use is recommended.</b>
               </LI>
+              <li>
+                Strict mode simply requires the following string to be added to the first line of a JavaScript file:<b><pre>'use strict';</pre></b>
+                STRICT MODE can be used within individual function scopes like so:<b><pre>function strictly(){
+  'use strict';
+  // function code goes here 
+}</pre></b>
+              </li>
+              <li>
+                ES6 introduced JavaScript modules (covered later in chapter 15). These are self- contained pieces of code that <b>are in strict mode by default</b>, so the 'use strict' declaration is not required.
+              </li>
+              <li>
+                <b>LINTING TOOLS</b>:<br>
+                These are tools that further enforce styling conventions in coding. They are useful for large team projects in order to keep all programming uniform. Examples include <a href="https://www.jslint.com/" target="_blank">JS Lint</a>, <a href="https://jshint.com/" target="_blank">JS Hint</a>, and <a href="https://eslint.org/" target="_blank">ES Lint</a> 
+              </li>
+              <li>
+                <b>FEATURE DETECTION:</b><br>
+                The recommended way to determine browser support for a feature is to use feature detection. This is done using an if statement to check whether an object or method exists before trying to actually call the method. For example, say we want to use the shiny new holoDeck API (as far as I know, this doesn’t actually exist ... yet), we would wrap any method calls inside the following if block:<pre>if (window.holoDeck) { 
+  virtualReality.activate(); 
+}</pre>
+                Feature detection guarantees that the method is only called if it actually exists and fails gracefully, without any exceptions being thrown, if the method doesn’t exist.<br>
+                Feature Detection Tools can be found at <a href="https://modernizr.com/" target="_blan">Modernizr</a> and <a href="https://caniuse.com/" target="_blank">Can I Use?</a>
+              </li>
             </UL>
           </li>
           <li>
             <B>DEBUGGING IN THE BROWSER:</B>
             <UL>
               <LI>
-                START...
+                <b>ALERT()</b><br>
+                Because alert() stops a program from running until OK is clicked, it allows us to effectively put breakpoints in the code that let us check the value of variables at that point to see if they’re what we expect them to be.<br>
+                Using alerts for debugging was the only option in the past, but JavaScript development has progressed since then and their use is discouraged for debugging purposes today.
               </LI>
+              <li>
+                <b>CONSOLE.LOG()</b><br>
+                The benefit of <code>console.log()</code> is that you can see the values of desired variables without stopping the program, as is the case when using <code>alert()</code>.<br>
+                <b>CONSOLE.TRACE()</b><br>
+                The console.trace() method will log an interactive stack trace in the console. This will show the functions that were called in the lead up to an exception occurring while the code is running.
+              </li>
+              <li>
+                <b>DEBUGGING TOOLS: BREAKPOINTS</b><br>
+                Many browsers have built-in debugging tools that let you set breakpoints that will then allow you to see the values of all the variables at that point in the program.<br>
+                To set a breakpoint in your code which will work on all browsers, use the <code>debugger;</code> keyword like so:<pre>function amIOldEnough(age){
+  debugger;
+    if (age < 12) { 
+      <b>debugger;</b>
+      return 'No, sorry.';
+    } else if (age < 18) { 
+      <b>debugger;</b>
+      return 'Only if you are accompanied by an adult.'; 
+    } else {
+      <b>debugger;</b>
+      return 'Yep, come on in!';
+    } 
+}</pre> By adding <code>debugger</code> keyword, you can then see the current values of variables in the browser by hovering over them in the debugging tab of the developer tools screen. <br>
+                <b>Remember to remove any references to the debugger command before shipping any code, otherwise the program will appear to freeze when people try to use it!</b>
+              </li>
             </UL>
           </li>
           <li>
             <B>ERROR OBJECTS:</B>
             <UL>
               <LI>
-                START...
+                An error object can be created by the host environment when an exception occurs, or it can be created in the code using a constructor function, like so:<pre>const error = new Error();</pre>
+                This constructor function takes a parameter that’s used as the error message:<pre>const error = new Error('Oops, something went wrong');</pre>There are seven more error objects used for specific errors:
+                <ol>
+                  <li>
+                    <b><code>EvalError</code></b> is not used in the current ECMAScript specification and only retained for backwards compatibility. It was used to identify errors when using the global eval() function.
+                  </li>
+                  <li>
+                    <b><code>RangeError</code></b> is thrown when a number is outside an allowable range of values.
+                  </li>
+                  <li>
+                    <b><code>ReferenceError</code></b> is thrown when a reference is made to an item that doesn’t exist. For example, calling a function that hasn’t been defined.
+                  </li>
+                  <li>
+                    <b><code>SyntaxError</code></b> is thrown when there’s an error in the code’s syntax.
+                  </li>
+                  <li>
+                    <b><code>TypeError</code></b> is thrown when there’s an error in the type of value used; for
+                    example, a string is used when a number is expected.
+                  </li>
+                  <li>
+                    <b><code>URIError</code></b> is thrown when there’s a problem encoding or decoding the URI.
+                  </li>
+                  <li>
+                    <b><code>InternalError</code></b> is a non-standard error that is thrown when an error occurs in the JavaScript engine. A common cause of this is too much recursion.
+                  </li>
+                </ol>
+                These error objects can also be used as constructors to create custom error objects:<pre>const error = new TypeError('You need to use numbers in this function');</pre>
               </LI>
             </UL>
           </li>
           <li>
             <B>EXCEPTION HANDLING:</B>
             <UL>
-              <LI>
-                START...
-              </LI>
+              <li>
+                <b>THROW()</b><br>
+                It is best practice to throw an error object.<pre>throw new Error('Something has gone badly wrong!');</pre> which can then be caught in a <code>catch</code> statement.
+              </li>
+              <li>
+                <b>TRY, CATCH, AND FINALLY:</b><br>
+                If we suspect a piece of code will result in an exception, we can wrap it in a try block. This will run the code inside the block as normal, but if an exception occurs it will pass the error object that is thrown onto a catch block. Here’s a simple example<pre>function imaginarySquareRoot(number) { 
+  'use strict';
+  try {
+    return String(squareRoot(number));
+  } catch(error) {
+    return squareRoot(-number)+'i';
+  } 
+}</pre>
+              
+                A <code>finally</code> block can be added after a <code>catch</code> block. This will always be executed after the try or catch block, regardless of whether an exception occurred or not. It is useful if you want some code to run in both cases. Ex:<pre>function imaginarySquareRoot(number) { 
+  'use strict';
+  let answer;
+  try {
+    answer = String(squareRoot(number)); 
+  } catch(error) {
+    answer = squareRoot(-number)+"i"; 
+  } finally {
+    return `+ or - ${answer}`; 
+  }
+}</pre>
+              </li>
             </UL>
+          </li>
+          <li>
+            <b>TESTING:</b>
+            <ul>
+              <li>
+                <b>Test-driven development(TDD)</b><br>
+                <ol>
+                  <li>
+                    Write tests (that initially fail)
+                  </li>
+                  <li>
+                    Write code to pass the tests
+                  </li>
+                  <li>
+                    Refactor the code
+                  </li>
+                  <li>
+                    Test refactored code
+                  </li>
+                  <li>
+                    Write more tests for new features
+                  </li>
+                </ol>
+              </li>
+            </ul>
           </li>
         </ol>
       </li>
