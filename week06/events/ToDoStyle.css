@@ -5,6 +5,9 @@ font-family: 'Raleway', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 
+/*******************************
+* General stylings
+********************************/
 *{
 	box-sizing: border-box;
 }
@@ -14,7 +17,19 @@ body{
 	font-weight: 400;
 	color: white;
 	background-color: black;
-	text-align: center; 
+	text-align: center;
+}
+/*******************************
+* Fieldsets
+********************************/
+fieldset{
+	border:3px solid salmon;
+	box-shadow: 0 0 .3rem tomato;
+	border-radius: .4rem;
+	/*Set the max-width of app and then
+	use auto margin to keep it center aligned*/
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 fieldset legend{
@@ -38,9 +53,4 @@ fieldset legend{
 
 #innerFieldset{
 	background-color: #555;
-}
-fieldset{
-	border:3px solid salmon;
-	box-shadow: 0 0 .3rem tomato;
-	border-radius: .4rem;
 }
