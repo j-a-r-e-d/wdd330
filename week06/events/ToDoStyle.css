@@ -1,0 +1,46 @@
+/*
+FONTS:
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: white;
+	background-color: black;
+	text-align: center; 
+}
+
+fieldset legend{
+	text-align: center;
+	background: #333;
+	border-radius: .4rem;
+	padding: 0 .5rem;
+	color: salmon;
+	font-family: 'Poppins', sans-serif;
+}
+
+#outerLegend{
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+#outerFieldset{
+	background-color: #333;
+	box-shadow: 0 0 1rem 3px red;
+}
+
+#innerFieldset{
+	background-color: #555;
+}
+fieldset{
+	border:3px solid salmon;
+	box-shadow: 0 0 .3rem tomato;
+	border-radius: .4rem;
+}
