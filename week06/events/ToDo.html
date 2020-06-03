@@ -1,3 +1,4 @@
+<!--Heavily referenced the ToDo example on this site: https://code-maven.com/todo-in-html-and-javascript-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="ToDoStyle.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
 <body>
@@ -14,10 +16,12 @@
 			<div id="innerFieldsetDiv">
 				<fieldset id="innerFieldset">
 					<!-- <legend id="innerLegend">List</legend> -->
-					<p>This is the inner fieldset.</p>
-
+					<div id="todos">
+						
+					</div>
 				</fieldset>
 			</div>
+			<input  type="text" id="task" name="task" placeholder="Create new task..."><button id="add"><img src="add_circle_outline-white-48dp.svg"></button>
 		</fieldset>
 	</div>
 	 
@@ -25,13 +29,3 @@
 <script type="text/javascript" src="ToDo.js"></script>
 </body>
 </html>
-<!--
-This is SVG image code for a circle which can be used for the empty bullet point:
-<svg width="100" height="100">
-   <circle cx="50" cy="50" r="20" stroke="darkgrey" stroke-width="4" fill="transparent" />
-   Sorry, your browser does not support inline SVG.
-</svg>
-
-This is SVG of circle with check mark in it for completed tasks:
-....???? (here's a link of possible image: https://jsfiddle.net/ayoisaiah/gsaycf1z/14/)
--->
