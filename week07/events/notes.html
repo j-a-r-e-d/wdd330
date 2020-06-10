@@ -16,7 +16,23 @@
       <li>
         <ol>
           <li>
-            Notes go here.
+            <b>FURTHER FUNCTIONS:</b>
+            <ul>
+              <li>
+                The <b><code>call( )</code></b> method is a built-in method of all functions in JavaScript. You can use this method to specify the value of <b><code>this</code></b> keyword. Ex:<pre>function sayHello(){
+  return `Hello, my name is ${ this.name }`; 
+}
+const clark = {name: 'Clark'};
+sayHello.call(clark);
+OUTPUT:
+'Hello, my name is Clark'</pre>
+              </li>
+              <li>
+                New properties can be created for any function just as you would other objects. For examples, you could create simple properties like 'description', 'created_by', and 'date_created' for every function you write. Ex:<pre>sayHello.description = 'This function
+will return a greeting which includes a user provided name.';<br>   sayHello.description;<br>   OUTPUT:<br>   'Hello, my name is Clark'</pre>
+              </li>
+              
+            </ul>
           </li>
         </ol>
       </li>
