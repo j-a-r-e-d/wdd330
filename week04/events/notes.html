@@ -145,6 +145,12 @@ walk() { console.log('Walking'); }
                 <b>MIXIN:</b><br>
                 A mixin is a way of adding properties and methods of some objects to another object without using inheritance. It allows more complex objects to be created by ‘mixing’ basic objects together.
               </li>
+              <li>
+                <b id="chaining">CHAINING FUNCTIONS:</b>
+                <p>
+                  If a method returns this, its methods can be chained together to form a sequence of method calls that are called one after the other. For example, the superman object can call all three of the superpower methods at once:<pre>superman.fly().move().xray();</pre>A big drawback with this technique is that it can make code more difficult to debug. If an error is reported as occurring on a particular line, there is no way of knowing which method caused the error, since there are multiple method calls on that line.<br><br>It’s worth keeping in mind that if a method lacks a meaningful return value, it might as well return this so that chaining is possible.
+                </p>
+              </li>
             </ul>
           </li>
           <li>

@@ -31,7 +31,201 @@ OUTPUT:
                 New properties can be created for any function just as you would other objects. For examples, you could create simple properties like 'description', 'created_by', and 'date_created' for every function you write. Ex:<pre>sayHello.description = 'This function
 will return a greeting which includes a user provided name.';<br>   sayHello.description;<br>   OUTPUT:<br>   'Hello, my name is Clark'</pre>
               </li>
-              
+              <li>
+                <b>RECURSIVE FUNCTIONS:</b><br>
+                <p>
+                  A recursive function is one that invokes itself until a certain condition is met. It’s a useful tool to use when iterative processes are involved. A common example is a function that calculates the factorial1 of a number:<pre>function factorial(n) { if (n === 0) {
+    return 1;
+} else {
+return n * factorial(n - 1); }
+}</pre>
+                </p>
+              </li>
+              <li>
+                <b>CREATING A PROMISE:</b>
+                <p>
+                  A promise is created using a constructor function. This takes a function called an executor as an argument. The executor initializes the promise and starts the asynchronous operation. It also accepts two functions as arguments: the resolve() function is called if the operation is successful, and the reject() function is called if the operation fails. The general layout of a promise can be seen in the code below:<pre>const promise = new Promise( (resolve, reject) => { // initialization code goes here
+if (success) {
+        resolve(value);
+    } else {
+        reject(error);
+    }
+});</pre>Another example:<pre>const promise = new Promise( (resolve,reject) => { const n = dice.roll();
+setTimeout(() => {
+(n > 1) ? resolve(n) : reject(n);
+}, n*1000);
+});</pre>
+                </p>
+                <p>
+                  Once a promise has been settled, the <b><code>then()</code></b> method can be used to deal with the outcome. This method accepts two arguments. The first is a fulfilment function that’s called when the promise is resolved. Any data returned from the resolve() function will be passed along to this function. The second argument is a rejection function that’s called if the promise is rejected. Similar to the fulfilment function, the rejection function receives any data returned from the reject() function.<br>
+                  Example:<pre>promise.then( result => console.log(`Yes! I rolled a ${result}`), result => console.log(`Drat! ... I rolled a ${result}`) );</pre>
+                </p>
+                <p>
+                  Alternatively, the <b><code>catch()</code></b> method can be used to specify what to do if the operation fails instead:<pre>promise.catch( result => console.log(`Drat! ... I rolled a ${result}`));</pre>
+                </p>
+                <p>
+                  The <b><code>then()</code></b> and <b><code>catch()</code></b> methods can be <b><a href="../../week04/events/notes.html#chaining" title="Read more about chaining functions">chained</a></b> together to form a succinct description of how to deal with the outcome of the promise:<pre>promise.then( result => console.log(`I rolled a ${result}`) )
+.catch( result => console.log(`Drat! ... I rolled a ${result}`) );</pre>
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <b>AJAX</b>
+            <ul>
+              <li>
+                <b>CLIENTS AND SERVERS:</b>
+                <p>
+                  <b>JavaScript was originally designed as a client-side scripting language</b>, meaning that it ran locally in the browser, adding dynamic features to the web page that was returned from the server. <b>Ajax allows JavaScript to request resources from a server on behalf of the client.</b> The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.
+                </p>
+                <p>
+                  <b>CORS</b> - Cross Origin Resourse Sharing. The same-origin policy in browsers blocks all requests from a domain that is different from the page making the request. This policy is enforced by all modern browsers and is to stop any malicious JavaScript being run from an external source. The problem is that the APIs of many websites rely on data being transferred across domains.<br>Cross-origin resource sharing (CORS) is a solution to this problem as it allows resources to be requested from another website outside the original domain. The CORS standard works by using HTTP headers to indicate which domains can receive data. A website can have the necessary information in its headers to allow external sites access to its API data. Most modern browsers support this method and respect the restrictions specified in the headers.
+                </p>
+              </li>
+              <li>
+                <b>APIs:</b>
+                <p>
+                  An <b>application programming interface (API)</b> is a collection of methods that allows external access to another program or service. Many websites allow controlled access to their data via public APIs. This means that developers are able to interact with the data and create mashups of third-party services. A weather site, for example, might have an API that provides methods that return information about the weather in a given location, such as temperature, wind speed, and so on. This can then be used to display local weather data on a web page. The information that’s returned by APIs is often serialized as JSON. Since the data is being provided by an external site, CORS will have to be enabled in order to access information from an API. Some services may also require authentication in order to access their APIs.
+                </p>
+              </li>
+              <li>
+                <b>THE FETCH API:</b>
+                <p>
+                  The XMLHttpRequest object was finally standardized by the WHATWG and W3C as part of the HTML5 specification, despite it originally being implemented by Microsoft many years earlier, and already available in most browsers.<br>It has since been superseded by <b>the Fetch API, which is currently a living standard for requesting and sending data asynchronously across a network.</b> The Fetch API uses promises to avoid callback hell, and also streamlines a number of concepts that had become cumbersome when using the XMLHttpRequest object.
+                </p>
+                <p>
+                  The Fetch API provides a global <code>fetch()</code> method that only has one mandatory argument, which is the URL of the resource you wish to fetch. Example:<pre>fetch('https://example.com/data')
+.then( // code that handles the response )
+.catch( // code that runs if the server returns an error )</pre>
+                </p>
+                <p>
+                  <b>Response Interface</b> introduces the Response object. Response objects have a number of properties and methods that allow us to process the response effectively. Ex:<pre>const url = 'https:example.com/data';
+fetch(url) 
+.then((response) => { if(response.ok) { return response;
+}
+throw Error(response.statusText);
+})
+.then( response => // do something with response ) 
+.catch( error => console.log('There was an error!') )</pre>
+                </p>
+                <p>
+                  <b>Text Responses:</b> The <b><code>text()</code></b> method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript. Example:<pre>fetch(url)
+.then( response => response.text() ); // transforms the text stream into a JavaScript string 
+.then( text => console.log(text) )
+.catch( error => console.log('There was an error: ', error))</pre>
+                </p>
+                <p>
+                  <b>File Responses: </b>The <b><code>blob()</code></b> method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole file, it returns a promise that resolves with a blob object. Example:<pre>fetch(url)
+.then( response => response.blob() ); // transforms the data into a blob object
+.then( blob => console.log(blob.type) )
+.catch( error => console.log('There was an error: ', error))</pre>
+                </p>
+                <p>
+                  <b>JSON Responses:</b> JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object. Example:<pre>fetch(url)
+.then( response => response.json() ); // transforms the JSON data into a JavaScript object
+.then( data => console.log(Object.entries(data)) )
+.catch( error => console.log('There was an error: ', error))</pre>
+                </p>
+                <p>
+                  <b>Creating Response Objects:</b> Although most of the time you will be dealing with a response object that is returned from a request you make, you can also create your own response objects
+                  using a constructor function: <pre>const response = new Response( 'Hello!', { ok: true,
+status: 200,
+statusText: 'OK',
+type: 'cors', url: '/api' });</pre>
+The first argument is the data that is to be returned (for example a text stream, file or JSON data). The second argument is an object that can be used to provide values for any of the properties listed above.
+These can be useful to use if you are creating an API that needs to send a response, or if you need to send a dummy response for testing purposes.
+
+                </p>
+                <p>
+                  <b>Request Interface:</b> We can get more fine-grained control over the request being made by providing a Request object as an argument. This allows a number of options to be set about the request.<br>Request objects are created using the Request() constructor, and include the following properties:<br>
+                  <ul>
+                    <li><b><code>url</code></b> - The URL of the requested resource (the only property that is required).</li>
+                    <li><b><code>method</code></b> - a string that specifies which HTTP method should be used for the request. By default, this is GET.</li>
+                    <li><b><code>headers</code></b></li>
+                    <li><b><code>mode</code></b> - Allows you to specify if CORS is used or not. CORS is enabled by default.</li>
+                    <li><b><code>cache</code></b> - Allows you to specify how the request will use the browser’s cache. For example, you can force it to request a resource and update the cache with the result, or you can force it to only look in the cache for the resource.</li>
+                    <li><b><code>credentials</code></b> - Lets you specify if cookies should be allowed with the request.</li>
+                    <li><b><code>redirect</code></b> - Specifies what to do if the response returns a redirect. There’s a choice of three values: “follow” (the redirect is followed), “error” (an error is thrown) or “manual” (the user has to click on a link to follow the redirect).</li>
+                  </ul>
+                  A constructor function is used to create a new Request object. An example is shown below:<pre>const request = new Request('https://example.com/data', { method: 'GET',
+mode: 'cors',
+redirect: 'follow',
+cache: 'no-cache' });</pre>
+                  The url property is the first argument, and is required. The second argument is an object made up of any of the other properties listed above.<br>Once the Request object is assigned to a variable, it can then be used as the parameter of the <code>fetch()</code> method:<pre>fetch(request)
+.then( // do something with the response ) .catch( // handle any errors)</pre>
+                  Alternatively, you can enter the URL and object directly as arguments of the <code>fetch()</code> method, without having to create a Request object:<pre>fetch('https://example.com/data', { method: 'GET',
+mode: 'cors', redirect: 'follow', cache: 'no-cache'
+})
+.then( // do something with the response ) .catch( // handle any errors)</pre>
+
+                </p>
+                <p>
+                  <b>Headers Interface:</b> Typical information contained in <code>headers</code> includes the file-type of the resource, cookie information, authentication information and when the resource was last modified.<br>
+                  A new <code>Headers</code> instance is created using a constructor function, as seen in the example below:<pre>const headers = new Headers();</pre>
+                  The constructor function can be provided with an optional argument containing any initial header values:<pre>const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })</pre>
+                  <code>Headers</code> objects contain the following properties:
+                  <ul>
+                    <li><b><code>has()</code></b> - Can be used to check if the headers object contains the header provided as an argument. Ex:<pre>headers.has('Content-Type'); << true</pre></li>
+                    <li><b><code>get()</code></b> - Returns the value of the header provided as an argument. Ex:<pre>headers.get('Content-Type'); << 'text/plain'</pre></li>
+                    <li><b><code>set()</code></b> - Can be used to set a value of an already existing header, or create a new header with the value provided as an argument if it does not already exist. Ex:<pre>headers.set('Content-Type', 'application/json');</pre></li>
+                    <li><b><code>append()</code></b> - Adds a new header to the headers object. Ex:<pre>headers.append('Accept-Encoding','gzip,deflate');</pre></li>
+                    <li><b><code>delete()</code></b> - Removes the header provided as an argument. Ex:<pre>headers.delete('Accept-Encoding')</pre></li>
+                    <li><b><code>keys(), values() and entries()</code></b> - Iterators that can be used to iterate over the headers key, values or entries (key and value pairs). Ex:<pre>for(const entry of headers.entries(){ console.log(entry);
+}
+<< [ 'Content-Type', 'application/json' ]</pre></li>
+                  </ul>
+                  Example of everything together:<pre>const url = 'https:example.com/data';
+const headers = new Headers({ 'Content-Type': 'text/plain',
+'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate'})
+const request = (url,{ headers: headers
+})
+fetch(request)
+.then( function(response) {
+if(response.ok) {
+return response;
+}
+throw Error(response.statusText);
+})
+.then( response => // do something with response ) .catch( error => console.log('There was an error!') )</pre>
+                </p>
+              </li>
+              <li>
+                <b>RECEIVING INFORMATION:</b>
+                <p>
+                  <b>Spinners:</b><br> It is common for sites to use spinners (or egg timers in the old days!) to indicate that the site is waiting for something to happen. <b><a href="http://www.ajaxload.info/" target="_blank" title="ajaxload">Ajax Load</a></b> and <b><a href="https://icons8.com/preloaders/" target="_blank" title="Preloaders.net"> Preloaders.net</a></b> are both good resources for creating a spinner graphic for your site.
+                </p>
+              </li>
+              <li>
+                <b>SENDING INFORMATION:</b>
+                <p>
+                  <b>FormData Interface</b><br>
+                  The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.<br>A FormData instance is created using a constructor function:<pre>const data = new FormData();</pre>
+                  The FormData interface helps to reduce the amount of code needed when submitting forms. Example:<pre>const form = document.forms['todo']; 
+form.addEventListener('submit', addTask, false);
+function addTask(event) { 
+  event.preventDefault();
+  const task = new FormData(form);
+  const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`; 
+  const headers = new Headers({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json' });
+    const request = new Request(url, {
+      method: 'POST',
+      mode: 'cors',
+      header: headers,
+      body: JSON.stringify(task) }
+  )
+  fetch(request)
+  .then( response => response.json() )
+  .then( data => console.log(`${data.title} saved with an id of ${data.id}`) )
+  .catch( error => console.log('There was an error:', error))
+}</pre>
+                </p>
+                <p>
+                  If you don’t want to live on the edge, you could <b>consider using a library to take care of Ajax requests.</b> The advantage of this approach is that the library will take care of any implementation details behind the scenes – it will use the most up-to- date methods, such as the fetch API, if it’s supported, and fallback on using older methods, if required.<br>
+                  <b>The jQuery library is a good option for this</b> – it has the generic <code>ajax()</code> method that can be used in a very similar way to the <code>fetch()</code> method. For example, if you want to get the data from the number API, you would use the following code:<pre>$.ajax('http://numbersapi.com/random') .done(text => outputDiv.innerHTML = text );</pre>
+                </p>
+              </li>
             </ul>
           </li>
         </ol>
