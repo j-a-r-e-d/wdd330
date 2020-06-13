@@ -18,6 +18,7 @@ b, em{
 a{
   font-weight: bolder;
   color: dodgerblue;
+  text-decoration: none;
 }
 
 /* Table styling */
