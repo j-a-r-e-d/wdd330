@@ -16,7 +16,80 @@
       <li>
         <ol>
           <li>
-            Notes go here.
+            <b>TRANSFORMS AND TRANSITIONS</b>
+            <ul>
+              <li>
+                <p>
+                  <b>TRANSLATE:</b><br>
+                  Transforms don't work on inline elements, such as &ltspan&gt, do you'll need to change the display property to <b><code>display: inline-block;</code></b>. Example:<pre>.ad-ad2 h1 span { font-size: 30px; color: #999999; display: inline-block;}
+.ad-ad2 h1:hover span {
+  color: #484848;
+  transform: translateX(40px);
+}</pre>
+                  <b><code>translate()</code></b> can be written for both X and Y coordinates, such as <b><code>transform: translate(45px, -45px)</code></b> or the coordinates can be adjusted individually with <b><code>translateX()</code></b> and <b><code>translateY()</code></b>, like so <b><code>transform: translateX(45px)</code></b> or <b><code>transform: translateY(-45px)</code></b>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>SCALING:</b><br>
+                  The scale(x,y) function scales an element by the defined factors horizontally then vertically. If only one value is provided, it will be used for both the x and y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio. For example, <b><code>scale(1)</code></b> would leave the element the same size, <b><code>scale(2)</code></b> would double its proportions, <b><code>scale(0.5)</code></b> would halve them, and so on. You can adjust each coordinate individually with <b><code>scaleX()</code></b> and <b><code>scaleY()</code></b>, like so <b><code>transform: scaleX(1.5)</code></b> or <b><code>transform: scaleY(2)</code></b>.
+                </p>
+                <p>
+                  <b>When adding multiple transforms to an element, you shouldn't declare multiple transforms.</b> Simply add the functions to one <code>transform</code> line, like so:<pre>.ad-ad2 h1:hover span {
+color: #484848;
+<b>transform: translateX(40px) scale(1.5);</b>
+}</pre>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>ROTATION:</b><br>
+                  The <code>rotate()</code> function rotates an element around the point of origin by a specified angle value. As with scale, by default the point of origin is the element’s center. Generally, angles are declared in degrees, with positive degrees moving clockwise and negative moving counterclockwise.
+                </p>
+                <p>
+                  <b>transforms are applied in the order provided.</b><pre>.ad-ad2 h1:hover span {
+color: #484848;
+<b>transform: rotate(10deg) translateX(40px) scale(1.5);</b>
+}</pre> In this case, the span will be rotated 10 degrees, and then moved 40px along the rotated x axis.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>SKEW:</b><br>
+                  The <code>skew(x,y)</code> function specifies a skew along the x and y axes. If the second parameter is omitted, the skew will only occur on the x axis. There are also <code>skewX()</code> and <code>skewY()</code> available:<pre>transform: skew(15deg, 4deg);</pre>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>TRANSITIONS:</b><br>
+                  Animation has certainly been possible for some time with JavaScript, but native CSS transitions generally require less client-side processing, so they’ll usually appear smoother. On mobile devices with limited computing power, this can be a lifesaver.
+                  <p>
+                    Here are the steps to create a simple transition using only CSS:
+                    <ol>
+                      <li>
+                        Declare the original state of the element in the default style declaration.
+                      </li>
+                      <li>
+                        Declare the final state of your transitioned element; for example, a :hover state.
+                      </li>
+                      <li>
+                        Include the transition functions in your default style declaration using the transition properties, including: transition-property, transition-duration, transition-timing-function, and transition-delay.
+                      </li>
+                    </ol>
+                  </p>
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <b>CANVAS, SVG, DRAG-N-DROP</b>
+            <ul>
+              <li>
+                <p>
+                  
+                </p>
+              </li>
+            </ul>
           </li>
         </ol>
       </li>
