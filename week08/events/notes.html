@@ -73,9 +73,43 @@ color: #484848;
                         Declare the final state of your transitioned element; for example, a :hover state.
                       </li>
                       <li>
-                        Include the transition functions in your default style declaration using the transition properties, including: transition-property, transition-duration, transition-timing-function, and transition-delay.
+                        <b>Include the transition functions in your default style declaration</b> using the transition properties, including: transition-property, transition-duration, transition-timing-function, and transition-delay. Example:<pre>.animatedSquare{
+  width: 300px;
+  height: 300px;
+  background: #3DCCC7;
+  transition-property: background, transform; //Notice that we didn't include the width change in the transition.
+  transition-duration: 500ms; //It's best practice to write these in milliseconds
+  transition-timing-function: ease-out;
+  transition-delay: 500ms;
+}
+.animatedSquare:hover {
+  width: 600px;
+  background: #FF6B6B;
+  transform: rotate(45deg);
+}</pre>
+
                       </li>
                     </ol>
+                  </p>
+                  <p>
+                    <b><code>'transition:'</code></b> is a shorthand (space sparated) for the transition properties <code>property, duration, timing-function, delay</code> but keep in mind the order.<br> 
+                    Shorthand Example for Single Property:<br>
+                    <b><code>transition: background 1000ms ease-in 250ms;</code></b><br> 
+                    The second number in the shorthand will always refer to the <code>delay</code> property.<br><br>
+                    Shorthand Example for Multiple Properties:<br>
+                    <b><code>transition: background 1000ms ease-in 250ms, width 1000ms ease-out 250ms;</code></b><br>
+                    Notice that multiple properties are comma separated.  
+                    <p>
+                      <b>A good video tutorial on transition properties is <a href="https://www.youtube.com/watch?v=Nloq6uzF8RQ" target="_blank" title="CSS Transition Properties">here</a></b>
+                    </p>
+                  </p>
+                  <p>
+                    <b>TRANSITION-DURATION:</b> <br>
+                    <b>200ms is generally considered the optimum time for a transition</b>: anything slower will make the website seem slow, drawing generally unwanted attention to what was supposed to be a subtle effect. Anything faster may be too subtle.
+                  </p>
+                  <p>
+                    <b>TRANSITION-TIMING-FUNCTION:</b><br>
+                    The most common timing functions include the key terms <b>ease, linear, ease-in, ease-out, or ease-in-out.</b> The default ease has a slow start, then it speeds up, and ends slowly. 
                   </p>
                 </p>
               </li>
