@@ -23,8 +23,8 @@ let people = document.getElementById("people");
 fetch(request)
   .then(response => response.json())
   .then(json => {
-    //console.log(json);
-    log(json);
+    console.log(json);
+    //log(json);
     planet.innerHTML = `<h1>${json.name}</h1>`;
     // people.innerHTML = `<h3>${json.residents[0]}</h3>`;
   });
