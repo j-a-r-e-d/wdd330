@@ -121,10 +121,24 @@ color: #484848;
             <ul>
               <li>
                 <p>
+                  CHECK OUT THIS GUY'S VIDEOS ON CANVAS: <a href="https://www.youtube.com/watch?v=83L6B13ixQ0" target="_blank" title="Canvas tutorial for beginners">CHRIS COURSES</a>
+                </p>
+                <p>
                   <code>canvas</code> was developed by Apple. It allows developers to draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video. In order to user <code>canvas</code> you first must add the <code>canvas</code> tags like so:<pre>&ltcanvas&gt
   Sorry! Your browser doesn't support Canvas.
 &lt/canvas&gt</pre>
                   The text between the <code>canvas</code> tags will only show if the <code>canvas</code> element is not supported by the visitor's browser.
+                </p>
+                <p>
+                  <b>Make sure you give your canvas a width and height HTML attributes, NOT IN CSS.<br>
+                  Also, add a border since it's hard to find on page without one.</b> Example:
+<pre>&ltcanvas id="myCanvas" class="myCanvas" <b>width="200" height="200</b>"&gt 
+  Sorry! Your browser doesn’t support Canvas.
+&lt/canvas&gt
+
+.myCanvas {
+  border: dotted 2px black;
+}</pre>
                 </p>
               </li>
             </ul>
