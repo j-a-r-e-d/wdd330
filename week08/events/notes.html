@@ -124,6 +124,9 @@ color: #484848;
                   CHECK OUT THIS GUY'S VIDEOS ON CANVAS: <a href="https://www.youtube.com/watch?v=83L6B13ixQ0" target="_blank" title="Canvas tutorial for beginners">CHRIS COURSES</a>
                 </p>
                 <p>
+                  <a href="https://www.w3schools.com/tags/ref_canvas.asp" target="_blank" title="w3schools">W3SCHOOLS COMPLETE CANVAS REFERENCE</a>
+                </p>
+                <p>
                   <code>canvas</code> was developed by Apple. It allows developers to draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video. In order to user <code>canvas</code> you first must add the <code>canvas</code> tags like so:<pre>&ltcanvas&gt
   Sorry! Your browser doesn't support Canvas.
 &lt/canvas&gt</pre>
@@ -139,6 +142,38 @@ color: #484848;
 .myCanvas {
   border: dotted 2px black;
 }</pre>
+                </p>
+                <p>
+                  With more complex shapes, do these 3 steps to creating them:<br>
+                  <ol>
+                    <li>Layout the PATH. (<b><code>context.beginPath();</code></b>)<pre>function drawCircle(canvas) {
+  var context = canvas.getContext("2d"); 
+  context.beginPath();
+  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.closePath();
+}</pre></li>
+                    <li>Stroke the path. (<b><code>context.stroke();</code></b>)<pre>function drawCircle(canvas) {
+  var context = canvas.getContext("2d"); 
+  context.beginPath();
+  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.closePath();
+  context.strokeStyle = "red";
+  context.fillStyle = "blue";
+  context.lineWidth = 3;
+  context.stroke();
+}</pre></li>
+                    <li>Fill the path. (<b><code>context.fill();</code></b>)<pre>function drawCircle(canvas) {
+  var context = canvas.getContext("2d"); 
+  context.beginPath();
+  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.closePath();
+  context.strokeStyle = "red";
+  context.fillStyle = "blue";
+  context.lineWidth = 3;
+  context.stroke();
+  context.fill();
+}</pre></li>
+                  </ol>
                 </p>
               </li>
             </ul>

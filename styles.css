@@ -42,3 +42,9 @@ th{
   padding-left: .5rem;
 }
 /* end Table Styling */
+
+code, pre{
+  color: #666;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
