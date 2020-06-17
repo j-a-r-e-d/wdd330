@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Week 08 - Notes</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
+    <header>
+
+    </header>
     <h1>NOTES</h1>
     <h2>WDD 330 portfolio</h2>
     <h3>Week08</h3>
@@ -135,7 +139,7 @@ color: #484848;
                 <p>
                   <b>Make sure you give your canvas a width and height HTML attributes, NOT IN CSS.<br>
                   Also, add a border since it's hard to find on page without one.</b> Example:
-<pre>&ltcanvas id="myCanvas" class="myCanvas" <b>width="200" height="200</b>"&gt 
+<pre>&ltcanvas id="myCanvas" class="myCanvas" <b>width="200" height="200</b>"&gt
   Sorry! Your browser doesn’t support Canvas.
 &lt/canvas&gt
 
@@ -147,15 +151,15 @@ color: #484848;
                   With more complex shapes, do these 3 steps to creating them:<br>
                   <ol>
                     <li>Layout the PATH. (<b><code>context.beginPath();</code></b>)<pre>function drawCircle(canvas) {
-  var context = canvas.getContext("2d"); 
+  var context = canvas.getContext("2d");
   context.beginPath();
-  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.arc(100, 100, 50, 0, Math.PI*2, true);
   context.closePath();
 }</pre></li>
                     <li>Stroke the path. (<b><code>context.stroke();</code></b>)<pre>function drawCircle(canvas) {
-  var context = canvas.getContext("2d"); 
+  var context = canvas.getContext("2d");
   context.beginPath();
-  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.arc(100, 100, 50, 0, Math.PI*2, true);
   context.closePath();
   context.strokeStyle = "red";
   context.fillStyle = "blue";
@@ -163,9 +167,9 @@ color: #484848;
   context.stroke();
 }</pre></li>
                     <li>Fill the path. (<b><code>context.fill();</code></b>)<pre>function drawCircle(canvas) {
-  var context = canvas.getContext("2d"); 
+  var context = canvas.getContext("2d");
   context.beginPath();
-  context.arc(100, 100, 50, 0, Math.PI*2, true); 
+  context.arc(100, 100, 50, 0, Math.PI*2, true);
   context.closePath();
   context.strokeStyle = "red";
   context.fillStyle = "blue";

@@ -1,5 +1,7 @@
 /*
 font-family: 'Nunito', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Teko', sans-serif;
 */
 
 *{
@@ -7,8 +9,53 @@ font-family: 'Nunito', sans-serif;
 }
 
 body{
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #777;
+}
+
+header{
+  box-shadow: 0 15px 20px #000000;
+  /* height: 216px; */
+  color: #777;
+  background-color: #333;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  padding:1rem;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "headerLinks1 headerMain headerMain headerLinks2";
+  grid-gap: 1rem;
+  justify-content: space-between;
+}
+.headerMain{
+  grid-area: headerMain;
+}
+.headerLinks1{
+  text-align: right;
+  grid-area: headerLinks1;
+  padding: 1.5rem 0 0 10rem;/* Adding this padding formats the horizontal rule line between links*/
+}
+.headerLinks2{
+  text-align: left;
+  grid-area: headerLinks2;
+  padding: 1.5rem 10rem 0 0;/* Adding this padding formats the horizontal rule line between links*/
+}
+.headerLinks1 a, .headerLinks2 a{
+  color: #777;
+  /* text-decoration: underline; */
+  font-size: 2rem;
+}
+.headerLinks1 a:hover, .headerLinks2 a:hover{
+  color: #aaa;
+}
+.headerTitle{
+  font-size: 6rem;
+  line-height: 100%;
+  text-decoration: underline;
+}
+.headerSubTitle{
+  font-size: 3rem;
+  line-height: 50%;
 }
 
 b, em{

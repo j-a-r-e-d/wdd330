@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Week 07 - Notes</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
@@ -20,7 +21,7 @@
             <ul>
               <li>
                 The <b><code>call( )</code></b> method is a built-in method of all functions in JavaScript. You can use this method to specify the value of <b><code>this</code></b> keyword. Ex:<pre>function sayHello(){
-  return `Hello, my name is ${ this.name }`; 
+  return `Hello, my name is ${ this.name }`;
 }
 const clark = {name: 'Clark'};
 sayHello.call(clark);
@@ -100,17 +101,17 @@ setTimeout(() => {
                 </p>
                 <p>
                   <b>Response Interface</b> introduces the Response object. Response objects have a number of properties and methods that allow us to process the response effectively. Ex:<pre>const url = 'https:example.com/data';
-fetch(url) 
+fetch(url)
 .then((response) => { if(response.ok) { return response;
 }
 throw Error(response.statusText);
 })
-.then( response => // do something with response ) 
+.then( response => // do something with response )
 .catch( error => console.log('There was an error!') )</pre>
                 </p>
                 <p>
                   <b>Text Responses:</b> The <b><code>text()</code></b> method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript. Example:<pre>fetch(url)
-.then( response => response.text() ); // transforms the text stream into a JavaScript string 
+.then( response => response.text() ); // transforms the text stream into a JavaScript string
 .then( text => console.log(text) )
 .catch( error => console.log('There was an error: ', error))</pre>
                 </p>
@@ -200,12 +201,12 @@ throw Error(response.statusText);
                 <p>
                   <b>FormData Interface</b><br>
                   The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.<br>A FormData instance is created using a constructor function:<pre>const data = new FormData();</pre>
-                  The FormData interface helps to reduce the amount of code needed when submitting forms. Example:<pre>const form = document.forms['todo']; 
+                  The FormData interface helps to reduce the amount of code needed when submitting forms. Example:<pre>const form = document.forms['todo'];
 form.addEventListener('submit', addTask, false);
-function addTask(event) { 
+function addTask(event) {
   event.preventDefault();
   const task = new FormData(form);
-  const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`; 
+  const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`;
   const headers = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json' });
