@@ -22,8 +22,8 @@ header{
   font-family: 'Teko', sans-serif;
   padding:1rem;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-template-areas: "headerLinks1 headerMain headerMain headerLinks2";
+  grid-template-columns: repeat(1,1fr);
+  grid-template-areas: "headerMain" "headerLinks1" "headerLinks2";
   grid-gap: 1rem;
   justify-content: space-between;
 }
@@ -31,31 +31,31 @@ header{
   grid-area: headerMain;
 }
 .headerLinks1{
-  text-align: right;
+  text-align: center;
   grid-area: headerLinks1;
-  padding: 1.5rem 0 0 10rem;/* Adding this padding formats the horizontal rule line between links*/
+/*   padding: 1.5rem 0 0 10rem;/* Adding this padding formats the horizontal rule line between links*/ */
 }
 .headerLinks2{
-  text-align: left;
+  text-align: center;
   grid-area: headerLinks2;
-  padding: 1.5rem 10rem 0 0;/* Adding this padding formats the horizontal rule line between links*/
+/*   padding: 1.5rem 10rem 0 0;/* Adding this padding formats the horizontal rule line between links*/ */
 }
 .headerLinks1 a, .headerLinks2 a{
   color: #777;
   /* text-decoration: underline; */
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 .headerLinks1 a:hover, .headerLinks2 a:hover{
   color: #aaa;
 }
 .headerTitle{
-  font-size: 6rem;
+  font-size: 4rem;
   line-height: 100%;
   text-decoration: underline;
 }
 .headerSubTitle{
-  font-size: 3rem;
-  line-height: 50%;
+  font-size: 2rem;
+  line-height: 80%;
 }
 
 b, em{
@@ -94,4 +94,68 @@ code, pre{
   color: #666;
   font-weight: 600;
   font-size: 1.1rem;
+}
+
+/* Media Queries*/
+@media only screen and (min-width: 600px) {
+  .headerLinks1{
+    text-align: right;
+  }
+  .headerLinks2{
+    text-align: left;
+  }
+  header{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "headerMain headerMain" "headerLinks1 headerLinks2";
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .headerTitle{
+    font-size: 6rem;
+  }
+  .headerSubTitle{
+    font-size: 3rem;
+    line-height: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  header{
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "headerLinks1 headerMain headerMain headerLinks2";
+  }
+  .headerTitle{
+    font-size: 4rem;
+  }
+  .headerSubTitle{
+    font-size: 2.5rem;
+    line-height: 80%;
+  }
+  .headerLinks1{
+    padding: 1.5rem 0 0 4rem;
+  }
+  .headerLinks2{
+    padding: 1.5rem 4rem 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .headerTitle{
+    font-size: 5rem;
+  }
+  .headerSubTitle{
+    font-size: 2.5rem;
+    line-height: 80%;
+  }
+  .headerLinks1{
+    padding: 1.5rem 0 0 5rem;
+
+  }
+  .headerLinks2{
+    padding: 1.5rem 5rem 0 0;
+  }
+  .headerLinks1 a, .headerLinks2 a{
+    font-size: 1.5rem;
+  }
 }
