@@ -22,14 +22,118 @@
       </div>
     </header>
     <br>
-    <ul>
-      <li>
-        <ol>
-          <li>
-            Notes go here.
-          </li>
-        </ol>
-      </li>
-    </ul>
+      <ol>
+        <li>
+          <b>The <code>WINDOW</code> Object:</b>
+          <ul>
+            <li>
+              <p>
+                Every JavaScript environment has a <code>global object</code>. Any variables that are created in the global scope are actually properties of this object, and any functions are methods of it. In a browser environment <b>the global object is the window object, which represents the browser window that contains a web page</b>.
+              </p>
+            </li>
+            <li>
+              <b>Browser Object Model (BOM):</b>
+              <p>
+                The properties and methods of the BOM are made available through the window object. <b>Every browser window, tab, popup, frame, and iframe has a window object.</b>
+              </p>
+              <p>
+                <code>GLOBAL</code> variables are variables that are created <b>without using the const, let or var keywords</b>. Global variables can be accessed in all parts of the program. Example:<pre>x = 6; // global variable created
+OUTPUT: 6
+window.x // same variable can be accessed as a property of the window object
+OUTPUT: 6
+// both variables are exactly the same 
+window.x === x;
+OUTPUT: true</pre>
+              </p>
+            </li>
+            <li>
+              <b>Browser Information:</b>
+              <p>
+                List of <code>WINDOW</code> object properties and methods <a href="https://www.w3schools.com/jsref/obj_window.asp" target="_blank" title="w3schools">here.</a>
+              </p>
+              <p>
+                <b><code>WINDOW.LOCATION</code></b><br>
+                PROPERTIES:<br>
+                <code>hash, host, hostname, href, origin, pathname, port, protocol, search</code><br>
+                METHODS:<br>
+                <code>assign(), reload(), replace()</code>
+              </p>
+              <p>
+                <b><code>WINDOW.HISTORY</code></b><br>
+                The <b><code>window.history.length</code></b> property shows how many pages have been visited before arriving at the current page.<br>
+                The <b><code>window.history.go()</code></b> method can be used to go to a specific page, where 0 is the current page:<pre>window.history.go(1); // goes forward 1 page 
+window.history.go(0); // reloads the current page 
+window.history.go(-1); // goes back 1 page</pre>
+              </p>
+              <p>
+                <b><code>window.history.forward(), window.history.back()</code></b>
+                Instead of referencing an specific URL for navigating forward and backwards on a webpage, if the user selects "Go Back" link on your page, for eaxmple, the <code>window.history.back()</code> method can be used within a Javascript event listener to allow the user to go back one page without having to code the specific URL of the page. [Although I think this isn't the best practice now that I think about various scenarios.]
+              </p>
+            </li>
+            <li>
+              <b>Controlling Windows:</b>
+              <p>
+                Pop-ups can be created using the <code>window.open()</code> method. The <code>window.open()</code> signature looks like this: <pre>window.open(URL, name, specs, replace).</pre>
+                Examples:<br>
+                <b>Blank window: </b><code>var myWindow = window.open("", "", "width=200,height=100");</code><br>
+                <b>New window: </b><code>window.open("https://www.w3schools.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");</code>
+              </p>
+              <p>
+                The <em>name</em> parameter refers to the target of the window being opened. Options include<br>
+                "_blank" - URL is loaded into new window or tab.<br>
+                "_self" - URL replaces the current page.
+              </p>
+              <p>
+                If <em>replace</em> parameter is set to <code>true</code>, then the new URL will replace the current URL in the browser's history. If set to <code>false</code>, then a new entry in the history list is created.
+              </p>
+            </li>
+            <li>
+              <b>Screen Information:</b>
+              <p>
+                Some examples of uses are:<pre>// width and height will give total width and height of the screen.
+window.screen.width;
+window.screen.height;
+
+// Available width and height will give dimensions minus any OS menu bars.
+window.screen.availWidth;
+window.screen.availHeight;
+
+// Determine the screens color bit depth.
+window.screen.colorDepth;</pre>
+              </p>
+              <p>
+                The Screen object has more uses for mobile devices. It also allows you to do things like turn off the device's screen, detect a change in its orientation or lock it in a specific orientation.
+              </p>
+            </li>
+            <li>
+              <b>The <code>DOCUMENT</code> Object:</b>
+              <p>
+                <b>COOKIES:</b><br>
+                Cookies are small files that are saved locally on a user’s computer. They are useful in that they allow HTTP data to be retained even though HTTP is a stateless protocol. <br>Examples of this include a user's name being saved for site, whether he was previously logged in, or his unpurchased checkout items from his last visit. 
+              </p>
+              <p>
+                A restriction of cookies is that <b>they can only be read by a web page from the same domain that set them.</b> This is to stop sites being able to access information about users, such as other sites they have visited. <b>Cookies are also limited to storing up to 4KB of data, although 20 cookies are allowed per domain,</b> which can add up to quite a lot of data.
+              </p>
+              <p>
+                Cookies are <b>session cookies</b> by default which means they are erased as soon as the browsing session is over (browser closed). But they can be made to persist even after browser closes by adding <b><code>"; expires=date"</code></b> when creating a cookie. the <code>date</code> portion is user determined. Example:<pre>const expiryDate = new Date();
+const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24; expiryDate.setTime(tomorrow);
+document.cookie = `name=Batman; expires=${ expiryDate.toUTCString()}`;</pre>
+              </p>
+              <p>
+                An alternative is to set the <b>max-age value</b>. This takes a value in seconds:<pre>document.cookie = 'name=Batman; max-age=86400' // 86400 secs = 1 day</pre>
+              </p>
+            </li>
+            <li>
+              <b>Timing Functions:</b>
+              <p>
+                
+              </p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>HTML5 APIs:</b>
+        </li>
+      </ol>
   </body>
 </html>
